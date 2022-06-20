@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+<style>
+body {
+  font-family: -apple-system;
+  font-size:20px;
+  height: 100%;
+  color:white;
+  background-color:#5c078d;
+}
+#math100 {
+  font-size: 30pt;
+  width: 250px;
+  min-height: 1em;
+  display: table-cell;
+  vertical-align: top;
+}
+#numInput {
+  text-align: center;
+  font-size: 30pt;
+  width: 230px;
+  min-height: 1em;
+  display: table-cell;
+  vertical-align: top;
+}
+#table {
+text-align: center;
+  font-size: 20pt;
+  min-height: 1em;
+  display: table-cell;
+  vertical-align: top;
+}
+
+
+</style>
+
+<h2 align= "center" >100以内加减法</h2>
+<div id="container">
+<table  width="500px" border="5px" cellspacing="8" align="center" bgcolor="#990c80" bordercolor="white">
+<tr>
+<td colspan="2">
+<p align= "center" id = "math100"></p>
+    <td colspan="2">
+          <input type="text" id="numInput" >
+    </td>
+</tr>
+<tr>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">7</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">8</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">9</td>
+<td onclick="OnClick(this)" span style="font-size:40px;" align="center" rowspan="3">清<br>除</td>
+</tr>
+<tr>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">4</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">5</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">6</td>
+
+</tr>
+<tr>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">1</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">2</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center">3</td>
+
+</tr>
+<tr>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center" colspan="2">0</td>
+<td onclick="OnClick(this)" span style="font-size:55px;" align="center" colspan="2">=</td>
+</tr>
+
+
+</table>
+<br>
+
+<div align= "center" id="rightcount">连续做对：0
+</div>
+<div align= "center" id="rpr">最高连对：0
+</div>
+
+<div align= "center" id="wcount">错误次数：0
+</div>
+<div align= "center" id="sumcount">题目总数：1
+</div>
+<div align= "center" id="rp">正确率：0%
+</div>
+
+
+</div>
+
+
+
+<script>
+var rcount =0;
+var strs ="";
+rcobj = document.getElementById("rightcount");
+wcobj = document.getElementById("wcount");
+sumcobj = document.getElementById("sumcount");
+
+var ans = tm();//答案
+var sumcount =0;//总题目数
+var wcount =0;//连续正确数
+let rCountRecord=0
+var rp =0;//正确率
+var rc = 0;//总正确次数
+var allcount =0;//不管对错，提交答案次数
+function OnClick(obj){
+    var str = obj.innerText;
+    var numInput = document.getElementById("numInput");
+    if(str=="="){
+        if (numInput.value==ans){
+            numInput.value= "👍👍👍";
+            rc++;
+            rcount ++ ;
+            if(rcount>rCountRecord){rCountRecord=rcount}
+            document.getElementById("rpr").innerHTML="最高连对：" + rCountRecord;
+            sumcount ++;
+            allcount ++;
+            sumcobj.innerHTML = "题目总数："+ sumcount;
+            rcobj.innerHTML="连续做对："+ rcount;
+            rp = rc/allcount*100;
+            document.getElementById("rp").innerHTML="正确率："+rp.toFixed(1)+"%";
+            ans = tm()
+            }else{
+                numInput.value="🤦🏻‍♂️";
+                rcount = 0;
+                wcount +=1;
+                wcobj.innerHTML="错误次数："+wcount;
+                rcobj.innerHTML="连续做对："+ rcount;
+                allcount ++;
+                rp = rc/allcount*100;
+                document.getElementById("rp").innerHTML="正确率："+rp.toFixed(1)+"%";
+            }        
+    }else{
+        if (str=="1"||str=="2"||str=="3"||str=="4"||str=="5"||str=="6"||str=="7"||str=="8"||str=="9"||str=="0"){
+            if (numInput.value =="👍👍👍"|| numInput.value == "🤦🏻‍♂️"){
+                numInput.value = "";
+                numInput.value +=str;
+                str = "";
+                strs = "";
+            }else{
+                numInput.value +=str;
+                str = "";
+                strs = "";
+            }
+         }else{
+             numInput.value="";
+         }
+    }
+
+}
+
+
+function tm(){
+    var x = Math.floor((Math.random() * 39) + 11);
+    var y= Math.floor((Math.random() * 39) + 11);
+    var j = Math.floor((Math.random() * 2) + 1);
+    var ans ;
+    if(j==1){
+        math100.innerHTML = (x +"+"+ y +"=");
+        ans= x+y;
+        return ans;
+    }else{
+        if(x>y){
+
+        math100.innerHTML = (x+"-"+y +"=");
+        ans = x-y;
+        return ans;
+        }else{
+
+            math100.innerHTML = (y+"-"+x +"=");
+            ans = y-x;
+            return ans;
+        }
+     }
+
+}
+
+
+
+
+
+</script>
+  </body>
+</html>
