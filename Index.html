@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>双向绑定</h1>
+    <input type="text" data-value="account" data-update="account" placeholder="账号"><br><br>
+    <input type="text" data-value="password" data-update="password" placeholder="密码">
+    <p>账号: <span data-value="account"></span></p>
+    <p>密码: <span data-value="password"></span></p>
+
+    <button onclick="data.account = ''">清空账号</button>
+    <button onclick="data.password = ''">清空密码</button>
+    <script>
+        'use strict'
+
+        function bindUpdates(setProp) {
+            return Array.from(document.querySelectorAll('*[data-update]'))
+                .reduce((pre, cur) => {
+                    const key = cur.dataset.update
+                    cur.addEventListener('keyup', () => {
+                        setProp(key, cur.value)
+                    })
+                    return { ...pre, [key]: cur }
+                }, {})
+        }
+
+        function bindValues() {
+            return [...document.querySelectorAll('*[data-value]')]
+                .reduce((pre, cur) => {
+                    const key = cur.dataset.value
+                    pre[key] ||= []
+                    pre[key].push(cur)
+                    return pre
+                }, {})
+        }
+
+        function bind() {
+            const values = bindValues()
+
+            const updates = bindUpdates((key, value) => {
+                data[key] = value
+            })
+
+            const data = new Proxy({}, {
+                set(_, key, value) {
+                    values[key].forEach(el => {
+                        if (el.value !== undefined) {
+                            el.value = value
+                        } else {
+                            el.innerText = value
+                        }
+                    })
+
+                    return true
+                },
+
+                get(_, key) {
+                    return updates[key].value
+                }
+            })
+
+            return data
+        }
+
+        const data = bind()
+    </script>
+</body>
+
+</html>
