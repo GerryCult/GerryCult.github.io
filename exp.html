@@ -12,6 +12,7 @@
             margin: 1%;
             padding: 0.5%;
             background-color: #444444;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         ul {
@@ -29,28 +30,28 @@
             justify-content: center;
             color: rgb(255, 255, 255);
             flex: 10%;
-            border-radius: 30px;
+            border-radius: 20px;
             background: #444444;
             box-shadow: 5px 5px 14px #1b1b1b,
                 -5px -5px 14px #6d6d6d;
-            /*             
-            border-style: solid;
-            border-radius: 15px;
-            border-width: 5px;
-            background-color: rgb(236, 172, 88);
-            color: rgb(255, 255, 255); */
         }
 
         li:hover {
-            border-radius: 30px;
+            border-radius: 20px;
             background: #444444;
             box-shadow: inset 5px 5px 14px #1b1b1b,
                 inset -5px -5px 14px #6d6d6d;
-            /* transition: 3s; */
+        }
+
+        .note {
+            color: aliceblue;
+            font-size: 10px;
         }
 
         p {
             display: flex;
+            min-height: 200px;
+            /* max-height: 200px; */
             flex-wrap: wrap;
             color: rgb(255, 255, 255);
             flex: 10%;
@@ -58,7 +59,7 @@
             font-size: 15px;
             text-align: left;
             background-color: rgb(235, 155, 101);
-            border-radius: 30px;
+            border-radius: 10px;
             background: #444444;
             box-shadow: inset 5px 5px 14px #1b1b1b,
                 inset -5px -5px 14px #6d6d6d;
@@ -82,9 +83,8 @@
             <p id=xuankuangExp></p>
         </ul>
     </div>
-    <div results>
-
-    </div>
+    <div class=note>
+        随机数并没有保存，关闭或刷新窗口会清空结果。
 
 </body>
 <script>
