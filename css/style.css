@@ -1,5 +1,5 @@
 * {
-    background-color: rgb(226, 224, 188);
+    background-color: #444444;
     /* position: absolute;
     top: 0;
     bottom: 0;
@@ -8,7 +8,7 @@
     margin: auto;
     /* display: flex; */
     justify-content: center;
-    padding: 0;
+    padding: 5px;
 
 }
 
@@ -21,13 +21,13 @@
 
 .menu {
     height: 2.8em;
-    width: 10em;
+    width: 8em;
     padding: 0.5em;
     margin: auto;
-    background: #963f06;
-    border: 1px solid #FF4742;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    border-radius: 20px;
+    background: #444444;
+    box-shadow: 5px 5px 14px #1b1b1b,
+        -5px -5px 14px #6d6d6d;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
@@ -51,9 +51,10 @@
 
 .menu:hover,
 .menu:active {
-    background-color: #b3e1dc;
-    background-position: 0 0;
-    color: #FF4742;
+    border-radius: 20px;
+    background: #444444;
+    box-shadow: inset 5px 5px 14px #1b1b1b,
+        inset -5px -5px 14px #6d6d6d;
 }
 
 .menu:active {
