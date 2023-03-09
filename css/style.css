@@ -15,7 +15,7 @@
 }
 
 .subMenu {
-    height: 2.8em;
+    height: 2.5em;
     width: 8em;
     /* padding: auto; */
     margin: 0.5em;
@@ -27,6 +27,7 @@
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
+    /* text-align: center; */
     font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
     /* font-size: 1em; */
     font-weight: 800;
