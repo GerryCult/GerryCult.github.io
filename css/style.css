@@ -1,46 +1,44 @@
 * {
-    background-color: #444444;
+    background-color: #333333;
     /* position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0; */
-    margin: auto;
+    /* font-size: 64px; */
+    /* margin: auto; */
     /* display: flex; */
-    justify-content: center;
-    padding: 10px;
+    /* justify-content: center; */
+    padding: 0.5em;
 
-}
-
-.div0 {
-    width: 50em;
-    display: flex;
-    height: 300px;
-    justify-content: center;
-    flex-flow: column;
-    flex-wrap: wrap;
-    align-content: space-between;
-    
-    
-    
-    /* vertical-align: auto; */
 }
 
 .menu {
+    font-size: xx-large;
+    width: 100%;
+    /* height: 1%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    flex-flow: column;
+}
+
+.subMenu {
     height: 2.8em;
     width: 8em;
-    padding: auto;
-    margin: auto;
-    border-radius: 20px;
-    background: #444444;
+    /* padding: auto; */
+    margin: 0.5em;
+    border-radius: 1em;
+    background: #333333;
     box-shadow: 5px 5px 14px #1b1b1b,
-        -5px -5px 14px #6d6d6d;
+        -5px -5px 14px #3a3939;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
     font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-    font-size: 1em;
+    /* font-size: 1em; */
     font-weight: 800;
     /* line-height: 16px; */
     /* align-content:center; */
@@ -55,14 +53,14 @@
     vertical-align: middle;
 }
 
-.menu:hover,
-.menu:active {
-    border-radius: 20px;
-    background: #444444;
+.subMenu:hover,
+.subMenu:active {
+    border-radius: 1em;
+    background: #333333;
     box-shadow: inset 5px 5px 14px #1b1b1b,
         inset -5px -5px 14px #6d6d6d;
 }
 
-.menu:active {
+.subMenu:active {
     opacity: .5;
 }
