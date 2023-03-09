@@ -15,10 +15,12 @@
 .div0 {
     width: 50em;
     display: flex;
+    height: 300px;
     justify-content: center;
     flex-flow: column;
     flex-wrap: wrap;
-    align-content:stretch;
+    align-content: space-between;
+    
     
     
     /* vertical-align: auto; */
