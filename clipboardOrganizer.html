@@ -11,6 +11,19 @@
             background-color: rgba(1, 28, 36, 0.753);
         }
 
+        #button {
+            display: flex;
+            background-color: rgba(240, 248, 255, 0.779);
+            color: rgb(79, 79, 79);
+            border-color: rgba(240, 248, 255, 0);
+            height: 30pt;
+            position: absolute;
+            right: 10pt;
+            top: 10pt;
+            font-size: medium;
+            border-radius: 8pt;
+        }
+
         #title {
             font-size: larger;
             background-color: rgb(63, 86, 83);
@@ -22,8 +35,9 @@
             flex-direction: column;
             font-size: 3em;
             color: aliceblue;
+            height: 40pt;
             padding: 15pt;
-            align-items: center;
+            align-items: left;
         }
 
         span {
@@ -41,27 +55,38 @@
 
 <body>
     <div id="title">Select chars to copy - by Gerry</div>
+    <input id="button" type="button" value="Load Clipboard" onclick="StrSplit();">
     <div id="1"></div>
     <div id="2"></div>
 </body>
 <script>
     function StrSplit() {
+        let spans = document.querySelectorAll("span");
+        console.log("span" + spans.length);
+        if (spans.length > 0) {
+            for (let i = 0; i < spans.length; i++) {
+                document.querySelector("span").remove()
+            };
+        };
         (async () => {
             let text = await navigator.clipboard.readText();
             a = text.replace(/\s/g, "");
+            // console.log(a)
             let currentDiv = document.getElementById("2");
             if (a.length < 100) {
                 let letter = num = "";
                 a.split("").map(item => {
                     item > -1 ? num += item : letter += item;
                 });
-                console.log([letter, num]);
+                // console.log([letter, num]);
                 let numDiv = document.createElement("span");
-                numDiv.innerHTML = `<div id ="${num}" onclick = "choose(this)">${num}</div>`;
+                (num + 0) > 0 ? numDiv.innerHTML = "<div id =" + num + "onclick = 'choose(this)'>" + num + "</div>" : console.log((num + 0) > 0);
+                // numDiv.innerHTML = `<div id ="${num}" onclick = "choose(this)">${num}</div>`;
                 document.body.insertBefore(numDiv, currentDiv);
                 for (let i = 0; i < letter.length; i++) {
                     let letterDiv = document.createElement("span");
-                    letterDiv.innerHTML = `<div id= "${i}" onclick="choose(this)">${letter.charAt(i)}</div>`;
+                    letterDiv.innerHTML = "<div id= " + i + " onclick='choose(this)'>" + letter.charAt(i) + "</div>";
+                    // letterDiv.innerHTML = `<div id= "${i}" onclick="choose(this)">${letter.charAt(i)}</div>`;
                     document.body.insertBefore(letterDiv, currentDiv);
                 }
             } else { console.log("To much characters") }
