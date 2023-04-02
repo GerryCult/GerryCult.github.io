@@ -73,14 +73,16 @@
             a = text.replace(/\s/g, "");
             // console.log(a)
             let currentDiv = document.getElementById("2");
+            document.getElementById(1).innerHTML = ""
+            // if (currentDiv1.innerHTML.lenth > 0) { currentDiv1.innerHTML = "" }
             if (a.length < 100) {
                 let letter = num = "";
                 a.split("").map(item => {
                     item > -1 ? num += item : letter += item;
                 });
-                // console.log([letter, num]);
+                console.log(num);
                 let numDiv = document.createElement("span");
-                (num + 0) > 0 ? numDiv.innerHTML = "<div id =" + num + "onclick = 'choose(this)'>" + num + "</div>" : console.log((num + 0) > 0);
+                (num + 0) > 0 ? numDiv.innerHTML = "<div id ='" + num + "'onclick = 'choose(this)'>" + num + "</div>" : console.log("No num");
                 // numDiv.innerHTML = `<div id ="${num}" onclick = "choose(this)">${num}</div>`;
                 document.body.insertBefore(numDiv, currentDiv);
                 for (let i = 0; i < letter.length; i++) {
@@ -95,16 +97,17 @@
     // setTimeout(() => {
     StrSplit();
     // }, "2000");
-    let str = "";
-    function choose(e) {
-        let id = e.innerHTML;
-        str = str + id
-        console.log(str);
+    function choose(char) {
+        let str = document.getElementById("1").innerHTML;
+        // console.log("1:" + str)
+        let chars = char.innerHTML;
+        str = str + chars
+        // console.log("2:" + str);
         document.getElementById("1").innerHTML = str;
         (async () => {
             try {
                 await navigator.clipboard.writeText(str);
-                console.log('Copyed');
+                // console.log('Copyed');
             } catch (err) {
                 console.error('Failed to copy: ', err);
             }
