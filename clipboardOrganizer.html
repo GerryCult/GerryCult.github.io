@@ -61,13 +61,15 @@
 </body>
 <script>
     function StrSplit() {
+        //先清除已经生成的span标签
         let spans = document.querySelectorAll("span");
-        console.log("span" + spans.length);
+        // console.log("span" + spans.length);
         if (spans.length > 0) {
             for (let i = 0; i < spans.length; i++) {
                 document.querySelector("span").remove()
             };
         };
+        //获取剪贴板内容，分离数字、字母，并添加到页面中供选择
         (async () => {
             let text = await navigator.clipboard.readText();
             a = text.replace(/\s/g, "");
@@ -95,9 +97,12 @@
         })();
     };
     // setTimeout(() => {
+    //页面加载时，运行一次
     StrSplit();
     // }, "2000");
+    //选择的字符按选择顺序放入剪贴板
     function choose(char) {
+        //先清空str
         let str = document.getElementById("1").innerHTML;
         // console.log("1:" + str)
         let chars = char.innerHTML;
