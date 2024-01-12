@@ -6,11 +6,11 @@
     <!-- Office JavaScript API -->
     <title>wordAddin</title>
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/taskpane.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/taskpane.css" />
 </head>
 
 <body>
-    
+
     <button id="helloButton">Say hello</button>
     <button id="titleStyle">文件标题</button>
     <button id="wenHao">文号位置</button>
@@ -24,7 +24,7 @@
 
 
 
-    
+
     <!-- The following image URL tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project. -->
     <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-hello-world-run" />
 </body>
@@ -34,8 +34,38 @@
         // Check that we loaded into Word
         if (info.host === Office.HostType.Word) {
             document.getElementById("helloButton").onclick = sayHello;
+            document.getElementById("titleStyle").onclick = titleStyle;
         }
     });
+
+
+
+
+
+    async function titleStyle() {
+
+
+        await Word.run(async (context) => {
+            const styleName = $("#style-name").val() as string;
+            if (styleName == "") {
+                console.warn("Enter a style name to update font properties.");
+                return;
+            }
+
+            const style = context.document.getStyles().getByNameOrNullObject(styleName);
+            style.load();
+            await context.sync();
+
+            if (style.isNullObject) {
+                console.warn(`There's no existing style with the name '${styleName}'.`);
+            } else {
+                const font = style.font;
+                font.color = "#FF0000";
+                font.size = 20;
+                console.log(`Successfully updated font properties of the '${styleName}' style.`);
+            }
+        });
+    };
 
 
     function sayHello() {

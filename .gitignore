@@ -1,0 +1,8 @@
+test.*
+/.vscode/
+/node/
+
+
+
+webpack.config.js
+node_modules
