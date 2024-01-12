@@ -39,25 +39,6 @@
 
 
     function sayHello() {
-        async () => {
-            await Word.run(async (context) => {
-                const builtInProperties = context.document.properties;
-                builtInProperties.load("*"); // Let's get all!
-
-                await context.sync();
-                return Word.run((context) => {
-
-                    // insert a paragraph at the start of the document.
-                    const paragraph1 = context.document.body.insertParagraph(JSON.stringify(builtInProperties, null, 4), Word.InsertLocation.end);
-
-                    // sync the context to run the previous API call, and return.
-                    return context.sync();
-                });
-                //console.log(JSON.stringify(builtInProperties, null, 4));
-            });
-        }
-
-
         return Word.run((context) => {
 
             // insert a paragraph at the start of the document.
