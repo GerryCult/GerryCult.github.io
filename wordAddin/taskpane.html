@@ -35,6 +35,7 @@
         if (info.host === Office.HostType.Word) {
             document.getElementById("helloButton").onclick = sayHello;
             document.getElementById("titleStyle").onclick = titleStyle;
+            consoe.log("heheh, 20240112")
         }
     });
 
@@ -42,11 +43,9 @@
 
 
 
-    async function titleStyle() {
-
-
-        await Word.run(async (context) => {
-            const styleName = $("#style-name").val() as string;
+    function titleStyle() {
+        Word.run(async (context) => {
+            const styleName = $("#style-name").val();
             if (styleName == "") {
                 console.warn("Enter a style name to update font properties.");
                 return;
