@@ -35,7 +35,7 @@
         if (info.host === Office.HostType.Word) {
             document.getElementById("helloButton").onclick = sayHello;
             document.getElementById("titleStyle").onclick = titleStyle;
-            console.log("heheh, 20240112")
+            console.log("123")
         }
     });
 
@@ -45,24 +45,31 @@
 
     function titleStyle() {
         Word.run(async (context) => {
-            const styleName = $("#SimSun").val();
-            if (styleName == "") {
-                console.warn("Enter a style name to update font properties.");
-                return;
-            }
 
-            const style = context.document.getStyles().getByNameOrNullObject(styleName);
-            style.load();
+            const selection = context.document.getSelection()
+            // selection.font.bold
+            selection.font.name = 'SimSun'
+            selection.font.size = "20"
             await context.sync();
+            console.log('The font name has changed.');
+            // const styleName = $("#SimSun").val();
+            // if (styleName == "") {
+            //     console.warn("Enter a style name to update font properties.");
+            //     return;
+            // }
 
-            if (style.isNullObject) {
-                console.warn(`There's no existing style with the name '${styleName}'.`);
-            } else {
-                const font = style.font;
-                //font.color = "#FF0000";
-                font.size = 20;
-                console.log(`Successfully updated font properties of the '${styleName}' style.`);
-            }
+            // const style = context.document.getStyles().getByNameOrNullObject(styleName);
+            // style.load();
+            // await context.sync();
+
+            // if (style.isNullObject) {
+            //     console.warn(`There's no existing style with the name '${styleName}'.`);
+            // } else {
+            //     const font = style.font;
+            //     //font.color = "#FF0000";
+            //     font.size = 20;
+            //     console.log(`Successfully updated font properties of the '${styleName}' style.`);
+            // }
         });
     };
 
@@ -78,11 +85,11 @@
         });
     }
 
-    function theDate(){
-    const date = new Date()
-    const time = `${date.getFullYear()}/${(date.getMonth() +1)}/${date.getDay()}`
-    return time
-}
+    function theDate() {
+        const date = new Date()
+        const time = `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDay()}`
+        return time
+    }
 //console.log(theDate())
 
 
