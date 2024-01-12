@@ -48,8 +48,10 @@
 
             const selection = context.document.getSelection()
             // selection.font.bold
-            selection.font.name = 'SimSun'
-            selection.font.size = "20"
+            selection.font.name = 'SimSun';
+            selection.font.name = 'Times New Roman';
+            selection.paragraphFormat.firstLineIndent = 4;
+            selection.font.size = "20";
             await context.sync();
             console.log('The font name has changed.');
             // const styleName = $("#SimSun").val();
@@ -78,8 +80,9 @@
         return Word.run((context) => {
 
             // insert a paragraph at the start of the document.
-            const paragraph = context.document.body.insertParagraph(`${theDate()}, Hello World!!!`, Word.InsertLocation.start);
-
+            const paragraph = context.document.body.insertParagraph(`${theDate()}, Hello World, 我的世界!!!`, Word.InsertLocation.start);
+            paragraph.font.name = 'Calibri';
+            paragraph.font.size = '10.5';
             // sync the context to run the previous API call, and return.
             return context.sync();
         });
