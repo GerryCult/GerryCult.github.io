@@ -45,7 +45,7 @@
 
     function titleStyle() {
         Word.run(async (context) => {
-            const styleName = $("#style-name").val();
+            const styleName = $("#SimSun").val();
             if (styleName == "") {
                 console.warn("Enter a style name to update font properties.");
                 return;
@@ -59,7 +59,7 @@
                 console.warn(`There's no existing style with the name '${styleName}'.`);
             } else {
                 const font = style.font;
-                font.color = "#FF0000";
+                //font.color = "#FF0000";
                 font.size = 20;
                 console.log(`Successfully updated font properties of the '${styleName}' style.`);
             }
