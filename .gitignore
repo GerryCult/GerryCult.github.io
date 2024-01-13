@@ -1,8 +1,15 @@
 test.*
-/.vscode/
-/node/
+.vscode
+sample
+.DS_Store
 
 
-
+hehe.*
 webpack.config.js
 node_modules
+hehe_typoraLincenseJSbackup.js
+hehe.html
+hehe.md
+hehe2.js
+practice.js
+test2.js

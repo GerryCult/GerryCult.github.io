@@ -1,5 +1,0 @@
-﻿{
-  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
-  "Domain": "gerryco.eu.org",
-  "Id": "d3994ded-dc17-48a9-97b6-f3383bbe3e3f"
-}
