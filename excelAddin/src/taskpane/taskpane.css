@@ -11,17 +11,17 @@ div {
 }
 
 .scaleTypeRearrange {
-
+    /* max-width: fit-content; */
     border-style: groove;
 
 }
 
-.scaleType .quickEdit {
+.quickEdit {
 
-    border-radius: 10px;
-    /* 
-    padding: 0.2em;
-    margin: 0.2em; */
+    /* border-radius: 10px; */
+
+    /* padding: 1em; */
+    /* margin: 1em; */
     /* border-style: groove; */
     display: grid;
     /* flex:1%; */
@@ -79,7 +79,7 @@ button {
     cursor: pointer;
     display: inline-block;
     font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     letter-spacing: normal;
     line-height: 1.5;

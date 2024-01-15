@@ -11,11 +11,14 @@ Office.onReady((info) => {
         document.getElementById("readData").onclick = readData;
         document.getElementById("write").onclick = writeData;
         document.getElementById("scaleType").onclick = scaleType;
+        document.getElementById("test").onclick = test
         // document.getElementById("app-body").style.display = "flex";
         // document.getElementById("run").onclick = run;
     }
 });
-
+export function test() {
+    console.log("hehe")
+}
 //大中小规模判断
 export async function scaleType() {
     let typeColumnIndex = 5 //写入数据列
@@ -45,11 +48,11 @@ export async function scaleType() {
         // console.log(orginalTypes.values)
         for (let x of orginT) {
             for (let y of ruleBase) {
-                let checker = y.includes(x[`${oriTypeColumn-1}`])
+                let checker = y.includes(x[`${oriTypeColumn - 1}`])
                 if (checker === true) {
-                    if (x[`${oriScaleOfConstrcution-1}`] < y[1]) {
+                    if (x[`${oriScaleOfConstrcution - 1}`] < y[1]) {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "小型")
-                    } else if (x[`${oriScaleOfConstrcution-1}`] > y[2]) {
+                    } else if (x[`${oriScaleOfConstrcution - 1}`] > y[2]) {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "大型")
                     } else {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "中型")
