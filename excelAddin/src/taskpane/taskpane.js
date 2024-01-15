@@ -18,10 +18,10 @@ Office.onReady((info) => {
 
 //大中小规模判断
 export async function scaleType() {
-    let typeColumnIndex = 5 //从0开始，第？列
+    let typeColumnIndex = 5 //写入数据列
     let rulesSheetName = `"大中小分类标准"`
-    let oriTypeColumn = 4
-    let oriScaleOfConstrcution = 3
+    let oriTypeColumn = 4  //原始表大中小型在第几列
+    let oriScaleOfConstrcution = 3 //原始表矿种在第几列
     // try {
     await Excel.run(async (context) => {
         //操作当前表格

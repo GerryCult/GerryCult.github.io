@@ -1,4 +1,96 @@
+* {
+    background-color: rgb(233, 250, 250);
+}
+div {
+    
+    padding: 0.2em;
+    margin: 0.2em;
+    border-style: groove;
+    /* display: flex; */
+}
+.scaleType .quickEdit {
+    border-radius: 10px;
+/* 
+    padding: 0.2em;
+    margin: 0.2em; */
+    /* border-style: groove; */
+    display: grid;
+    /* flex:1%; */
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+input {
+    max-width: 20%;
+}
+
+.inputGroup {
+    /* font-size: 5px; */
+    padding: 0;
+    margin: 0;
+    border-style: none;
+    display: grid;
+    /* border-spacing: 0cap; */
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+     gap: 8px; 
+}
+.inputSupGroup{
+    margin: 0;
+    padding: 0;
+width: 100px;
+}
+p {
+font-size: 2px;
+transform: scale(0.6);
+/* text-align: left; */
+;
+
+}
+
 button {
-    font-size: 2rem;
-    padding: 2, 5;
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #186d50;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 0.5em;
+    font-weight: bold;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 5px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #1e8449;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+
+button:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+
+button:hover {
+    box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }

@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contoso Task Pane Add-in</title>
+    <title>G's Excel Addin</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
@@ -23,11 +23,42 @@
 
 <body>
 
+    <div class="scaleTypeRearrange">
+        <div class="inputGroup">
+            <div class="inputSubGroup">
+                <p> 标题行所在行数</p>
+                <input type="number">
+            </div>
+            <div class="inputSubGroup">
 
-    <button id="scaleType">大中小型判断</button>
-    <button id="fillColor">填充颜色</button>
-    <button id="readData">读取</button>
-    <button id="write">写入</button>
+                <p> 矿种所在列数</p>
+                <input type="number">
+            </div>
+
+            <div class="inputSubGroup">
+                <p> 大中小型所在列</p>
+                <input type="number">
+            </div>
+
+            <div class="inputSubGroup">
+                <p> 写入数据所在列</p>
+                <input type="number">
+            </div>
+
+            </div>
+            <button id="scaleType">大中小型判断</button>
+
+
+
+        </div>
+        <div class="quickEdit">
+
+            <button id="fillColor">填充颜色</button>
+            <button id="readData">读取</button>
+            <button id="write">写入</button>
+
+
+        </div>
 
 
 
