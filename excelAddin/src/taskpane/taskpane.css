@@ -1,5 +1,6 @@
 * {
     background-color: rgb(233, 250, 250);
+    /* align-content: center; */
 }
 
 div {
@@ -30,7 +31,7 @@ div {
 }
 
 input {
-    max-width: 20%;
+    max-width: 50%;
 }
 
 .inputGroup {
@@ -59,8 +60,9 @@ p {
     padding: 0;
     margin: 0;
     font-size: 1em;
-    /* transform: scale(0.6); */
-    /* text-align: left; */
+    color: #858585
+        /* transform: scale(0.6); */
+        /* text-align: left; */
     ;
 
 }
