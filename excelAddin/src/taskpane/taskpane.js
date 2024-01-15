@@ -19,6 +19,9 @@ Office.onReady((info) => {
 //大中小规模判断
 export async function scaleType() {
     let typeColumnIndex = 5 //从0开始，第？列
+    let rulesSheetName = `"大中小分类标准"`
+    let oriTypeColumn = 4
+    let oriScaleOfConstrcution = 3
     // try {
     await Excel.run(async (context) => {
         //操作当前表格
@@ -27,7 +30,7 @@ export async function scaleType() {
         orginalTypes.load("values")//获取当前表格值
 
         //操作分类标准表格
-        const rulesSheet = context.workbook.worksheets.getItem("大中小分类标准")//获取“大中小分类标准”表
+        const rulesSheet = context.workbook.worksheets.getItem(rulesSheetName)//获取“大中小分类标准”表
         let rules = rulesSheet.getUsedRange()//获取分类标准表格占用范围
         rules.load("values")//获取分类标准表格值
 
@@ -42,11 +45,11 @@ export async function scaleType() {
         // console.log(orginalTypes.values)
         for (let x of orginT) {
             for (let y of ruleBase) {
-                let checker = y.includes(x[1])
+                let checker = y.includes(x[`${oriTypeColumn-1}`])
                 if (checker === true) {
-                    if (x[2] < y[1]) {
+                    if (x[`${oriScaleOfConstrcution-1}`] < y[1]) {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "小型")
-                    } else if (x[2] > y[2]) {
+                    } else if (x[`${oriScaleOfConstrcution-1}`] > y[2]) {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "大型")
                     } else {
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "中型")
