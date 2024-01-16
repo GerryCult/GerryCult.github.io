@@ -11,10 +11,10 @@ Office.onReady((info) => {
         document.getElementById("readData").onclick = readData;
         document.getElementById("write").onclick = writeData;
         document.getElementById("scaleType").onclick = scaleType;
-        document.getElementById("test").onclick = test
         // document.getElementById("app-body").style.display = "flex";
         // document.getElementById("run").onclick = run;
     }
+    document.getElementById("test").onclick = test
 });
 export function test() {
     console.log("hehe")
