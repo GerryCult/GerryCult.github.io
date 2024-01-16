@@ -11,9 +11,11 @@ Office.onReady((info) => {
         document.getElementById("readData").onclick = readData;
         document.getElementById("write").onclick = writeData;
         document.getElementById("scaleType").onclick = scaleType;
+        console.log("onReady")
         // document.getElementById("app-body").style.display = "flex";
         // document.getElementById("run").onclick = run;
     }
+    console.log("NotReady")
     document.getElementById("test").onclick = test
 });
 export function test() {
