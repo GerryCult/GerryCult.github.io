@@ -24,15 +24,38 @@ div {
     /* margin: 1em; */
     /* border-style: groove; */
     display: grid;
-    /* flex:1%; */
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
 }
 
 input {
-    max-width: 50%;
+    max-width: 3em;
+    padding: 0.5em;
+    margin: 0.2em;
+    border-color: #1e8449;
+    border-radius: 0.5em;
+    /* ime-mode: disabled; */
+
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+span {
+    padding: 0;
+    margin: 0;
+    max-width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
 
 .inputGroup {
 
@@ -40,12 +63,13 @@ input {
     padding: 0;
     margin: 0;
     /* border-style: groove; */
-
-    display: grid;
-    /* border-spacing: 0cap; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* display: grid;
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 8px; */
 }
 
 .inputSupGroup {
