@@ -1,0 +1,81 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>G's Excel Addin</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" scr="http://127.0.0.1:5500/excelAddin/src/taskpane/taskpane.js"></script>
+</head>
+
+<body>
+    <!-- let typeColumnIndex = 5 //写入数据列
+    let rulesSheetName = `"大中小分类标准"`
+    let oriTypeColumn = 4  //原始表大中小型在第几列
+    let oriScaleOfConstrcution = 3 //原始表矿种在第几列 -->
+    <div class="scaleTypeRearrange">
+        <div class="inputGroup">
+
+            <span class="inputSubGroup">
+                <p> 矿种所在列</p>
+                <input type="number" id="oriTypeColumn" id="typeColumnIndex"
+                    oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
+
+            <span class="inputSubGroup">
+                <p> 生产规模列</p>
+                <input type="number" id="oriScaleOfConstrcution" id="typeColumnIndex"
+                    oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
+
+
+            <!-- <span class="inputSubGroup">
+                <p> 标题行数</p>
+                <input type="number" id="typeColumnIndex" oninput="if(value>100)value=100;if(value<0)value=0">
+            </span> -->
+
+            <span class="inputSubGroup">
+                <p> 大中小写入列</p>
+                <input type="number" id="typeColumnIndex" oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
+
+        </div>
+        <button id="scaleType">大中小型判断</button>
+
+
+
+    </div>
+    <div class="quickEdit">
+
+        <button id="fillColor">填充颜色</button>
+        <button id="readData">读取</button>
+        <button id="write">写入</button>
+        <button id="test">console.log</button>
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+
+</html>
