@@ -15,18 +15,21 @@ Office.onReady((info) => {
         // document.getElementById("app-body").style.display = "flex";
         // document.getElementById("run").onclick = run;
     }
-    console.log("NotReady")
-    document.getElementById("test").onclick = test
+    // console.log("NotReady")
+    // document.getElementById("test").onclick = writeToCells(2, 6, 1, 1, "hehe")
 });
 export function test() {
-    console.log("hehe")
+    console.log("hejjhe")
+
 }
 //大中小规模判断
 export async function scaleType() {
-    let typeColumnIndex = 5 //写入数据列
-    let rulesSheetName = `"大中小分类标准"`
-    let oriTypeColumn = 4  //原始表大中小型在第几列
-    let oriScaleOfConstrcution = 3 //原始表矿种在第几列
+    let typeColumnIndex = document.getElementById("typeColumnIndex").value * 1 - 1; //写入数据列
+    console.log(typeof (typeColumnIndex))
+    console.log(typeColumnIndex)
+    // let rulesSheetName = `"大中小分类标准"`
+    let oriTypeColumn = document.getElementById("oriTypeColumn").value;  //原始表矿种在第几列
+    let oriScaleOfConstrcution = document.getElementById("oriScaleOfConstrcution").value //原始表矿山规模第几列
     // try {
     await Excel.run(async (context) => {
         //操作当前表格
@@ -35,7 +38,7 @@ export async function scaleType() {
         orginalTypes.load("values")//获取当前表格值
 
         //操作分类标准表格
-        const rulesSheet = context.workbook.worksheets.getItem(rulesSheetName)//获取“大中小分类标准”表
+        const rulesSheet = context.workbook.worksheets.getItem("大中小分类标准")//获取“大中小分类标准”表
         let rules = rulesSheet.getUsedRange()//获取分类标准表格占用范围
         rules.load("values")//获取分类标准表格值
 
@@ -50,13 +53,19 @@ export async function scaleType() {
         // console.log(orginalTypes.values)
         for (let x of orginT) {
             for (let y of ruleBase) {
+                // console.log(x[`${oriTypeColumn - 1}`])
                 let checker = y.includes(x[`${oriTypeColumn - 1}`])
+                // console.log(checker)
                 if (checker === true) {
                     if (x[`${oriScaleOfConstrcution - 1}`] < y[1]) {
+                        // console.log(orginT.indexOf(x) + 1)
+                        // console.log(typeColumnIndex)
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "小型")
                     } else if (x[`${oriScaleOfConstrcution - 1}`] > y[2]) {
-                        writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "大型")
+                        // console.log((orginT.indexOf(x) + 1) + "&" + (typeColumnIndex))
+                        writeToCells(orginT.indexOf(x) + 1, typeColumnIndex, 1, 1, "大型")
                     } else {
+                        // console.log((orginT.indexOf(x) + 1) + "&" + (typeColumnIndex))
                         writeToCells((orginT.indexOf(x) + 1), typeColumnIndex, 1, 1, "中型")
                     }
                 }
@@ -121,6 +130,10 @@ export async function readData() {
 }
 //数据写入，与原数据比对，不一致的写入并加黄色
 async function writeToCells(sr, sc, rc, cc, type) {
+    // console.log(typeof (sc))
+    // console.log(typeof (rc))
+    // console.log(typeof (cc))
+    console.log(`${sr} + ${sc} + ${rc} + ${cc} + ${type}`)
     await Excel.run(async (context) => {
         const range = context.workbook.worksheets.getActiveWorksheet().getRangeByIndexes(sr, sc, rc, cc)
         range.load("values")

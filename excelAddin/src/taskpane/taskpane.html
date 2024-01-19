@@ -20,32 +20,39 @@
     <!-- Template styles -->
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" scr="http://127.0.0.1:5500/excelAddin/src/taskpane/taskpane.js"></script>
+    <script type="text/javascript" scr="http://127.0.0.1:5500/excelAddin/src/taskpane/taskpane.js"></script>
 </head>
 
 <body>
-
+    <!-- let typeColumnIndex = 5 //写入数据列
+    let rulesSheetName = `"大中小分类标准"`
+    let oriTypeColumn = 4  //原始表大中小型在第几列
+    let oriScaleOfConstrcution = 3 //原始表矿种在第几列 -->
     <div class="scaleTypeRearrange">
         <div class="inputGroup">
-            <div class="inputSubGroup">
-                <p> 标题行所在行数</p>
-                <input type="number">
-            </div>
-            <div class="inputSubGroup">
 
-                <p> 矿种所在列数</p>
-                <input type="number">
-            </div>
+            <span class="inputSubGroup">
+                <p> 矿种所在列</p>
+                <input type="number" id="oriTypeColumn" id="typeColumnIndex"
+                    oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
 
-            <div class="inputSubGroup">
-                <p> 大中小型所在列</p>
-                <input type="number">
-            </div>
+            <span class="inputSubGroup">
+                <p> 生产规模列</p>
+                <input type="number" id="oriScaleOfConstrcution" id="typeColumnIndex"
+                    oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
 
-            <div class="inputSubGroup">
-                <p> 写入数据所在列</p>
-                <input type="number">
-            </div>
+
+            <!-- <span class="inputSubGroup">
+                <p> 标题行数</p>
+                <input type="number" id="typeColumnIndex" oninput="if(value>100)value=100;if(value<0)value=0">
+            </span> -->
+
+            <span class="inputSubGroup">
+                <p> 大中小写入列</p>
+                <input type="number" id="typeColumnIndex" oninput="if(value>100)value=100;if(value<0)value=0">
+            </span>
 
         </div>
         <button id="scaleType">大中小型判断</button>
@@ -58,7 +65,7 @@
         <button id="fillColor">填充颜色</button>
         <button id="readData">读取</button>
         <button id="write">写入</button>
-        <button id="test">testhkkkkkkkkkkkkhhhhjjjjjjjjjjjjjjjhh</button>
+        <button id="test">console.log</button>
 
 
     </div>
