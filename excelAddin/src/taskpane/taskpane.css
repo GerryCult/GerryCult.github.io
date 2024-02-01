@@ -6,8 +6,11 @@
 div {
 
     padding: 0.2em;
-    margin: 0.2em;
-
+    margin: auto;
+    /* max-width: 15em; */
+    max-width: 20em;
+    align-items: center;
+    /* align-content: center; */
     /* display: flex; */
 }
 
@@ -31,6 +34,7 @@ div {
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+    /* font-size: 1.5rem; */
 }
 
 input {
@@ -41,7 +45,8 @@ input {
     border-radius: 0.8em;
     border-style: groove;
     text-align: center;
-    font-size: 0.8em;
+    /* font-size: 0.8em; */
+
     /* ime-mode: disabled; */
 
 }
@@ -67,11 +72,11 @@ span {
 .inputGroup {
 
     /* font-size: 5px; */
-    padding: 0;
-    margin: 0;
-    padding: 0;
-    margin: 0;
-    max-width: 20%;
+    /* padding: 0; */
+    /* margin: 0; */
+    /* padding: 0; */
+    /* margin: 0; */
+    /* max-width: 20%; */
     display: flex;
     /* flex-wrap: wrap; */
     align-items: center;
@@ -101,7 +106,7 @@ span {
 p {
     padding: 0;
     margin: 0;
-    font-size: 1em;
+    font-size: 0.8em;
     color: #858585
         /* transform: scale(0.6); */
         /* text-align: left; */
@@ -110,6 +115,7 @@ p {
 }
 
 button {
+    max-width: 15em;
     appearance: none;
     backface-visibility: hidden;
     background-color: #186d50;
@@ -121,7 +127,7 @@ button {
     cursor: pointer;
     display: inline-block;
     font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
+    /* text-align: justify; */
     font-weight: bold;
     letter-spacing: normal;
     line-height: 1.5;
